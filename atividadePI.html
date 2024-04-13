@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade chartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            display: flex;
+        }
+
+        .linha .barra {
+            position: relative;
+            height: 40vw;
+            width: 80vw;
+        }
+    </style>
+    <html>
+
+<body>
+    <div class="linha">
+        <canvas id="tabela_linha"></canvas>
+    </div>
+    <div class="barra">
+        <canvas id="tabela_barra"></canvas>
+    </div>
+</body>
+
+<script>
+    //Tabela 1
+    const labels_line = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ]
+
+    const data_line = {
+        labels: labels_line,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 0)',
+            borderColor: 'rgb(255, 99, 0)',
+            data: [30, 29, 28, 25, 22, 23]
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [30 + 50, 29 + 53, 28 + 52, 25 + 60, 22 + 58, 23 + 60]
+        }]
+    }
+
+    const config = {
+        type: 'line',
+        data: data_line,
+        options: {}
+    };
+
+    //Tabela 2
+
+    const labels_bar = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ]
+
+    const data_bar = {
+        labels: labels_bar,
+        datasets: [{
+            label: 'Temperatura média',
+            backgroundColor: 'rgb(255, 99, 0)',
+            borderColor: 'rgb(255, 99, 0)',
+            data: [22, 24, 27, 23, 20, 18]
+        },
+        {
+            label: 'Umidade média',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [22 + 78, 24 + 65, 27 + 66, 23 + 64, 20 + 68, 18 + 64]
+        }]
+    }
+    const config2 = {
+        type: 'bar',
+        data: data_bar,
+        options: {}
+    };
+</script>
+<script>
+    const tabela_linha = new Chart(
+        document.getElementById('tabela_linha'),
+        config
+    );
+
+    const tabela_barra = new Chart(
+        document.getElementById('tabela_barra'),
+        config2
+    );
+</script>
+
+</html>
